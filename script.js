@@ -28,3 +28,8 @@ function moveSlide(offset) {
   slides.children[newIndex].dataset.active = true;
   delete activeSlide.dataset.active;
 }
+
+function playAudio() {
+  const audio = document.getElementById("poem-audio");
+  audio.play();
+}
