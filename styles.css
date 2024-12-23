@@ -1,0 +1,369 @@
+/* General */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background: linear-gradient(to bottom, #ffe4e1, #fffaf0); /* Fondo suave */
+  color: #333;
+  overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
+}
+
+/* Header */
+/* Header */
+header {
+  text-align: center;
+  padding: 1.5rem;
+  color: #4a0025;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* Apply the pattern */
+  background: radial-gradient(
+      circle at 15% 30%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    radial-gradient(
+      circle at 50% 70%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    radial-gradient(
+      circle at 15% 70%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    linear-gradient(
+      45deg,
+      var(--color, #d1bdbd) 25%,
+      rgba(0, 0, 0, 0.067) 0,
+      rgba(0, 0, 0, 0.067) 50%,
+      var(--color, #d1bdbd) 0,
+      var(--color, #d1bdbd) 75%,
+      #1111 0,
+      #1111 100%,
+      var(--color, #d1bdbd) 0
+    );
+  background-size: var(--size, 150px) var(--size, 150px);
+}
+
+.title {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 0.1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Carousel */
+.carousel {
+  width: 100%; /* Asegúrate de que ocupe el 100% del ancho de la pantalla */
+  height: 50vh;
+  position: relative;
+  border-top: 2px solid #ff9aa2;
+  border-bottom: 2px solid #ff9aa2;
+  overflow: hidden; /* Oculta cualquier contenido que exceda los bordes del carrusel */
+  background: radial-gradient(
+      circle at 15% 30%,
+      transparent 40%,
+      var(--color, #f7e6e6) 41%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      transparent 40%,
+      var(--color, #f7e6e6) 41%
+    ),
+    radial-gradient(
+      circle at 50% 70%,
+      transparent 40%,
+      var(--color, #f7e6e6) 41%
+    ),
+    radial-gradient(
+      circle at 15% 70%,
+      transparent 40%,
+      var(--color, #f7e6e6) 41%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      transparent 40%,
+      var(--color, #f7e6e6) 41%
+    ),
+    linear-gradient(
+      45deg,
+      var(--color, #f7e6e6) 25%,
+      rgba(255, 255, 255, 0.1) 0,
+      rgba(255, 255, 255, 0.1) 50%,
+      var(--color, #f7e6e6) 0,
+      var(--color, #f7e6e6) 75%,
+      #fff 0,
+      #fff 100%,
+      var(--color, #f7e6e6) 0
+    );
+  background-size: var(--size, 150px) var(--size, 150px);
+}
+
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+  background: radial-gradient(
+      circle at 15% 30%,
+      transparent 40%,
+      var(--color, #f7e6e6) 41%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      transparent 40%,
+      var(--color, #f7e6e6) 41%
+    ),
+    radial-gradient(
+      circle at 50% 70%,
+      transparent 40%,
+      var(--color, #f7e6e6) 41%
+    ),
+    radial-gradient(
+      circle at 15% 70%,
+      transparent 40%,
+      var(--color, #f7e6e6) 41%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      transparent 40%,
+      var(--color, rgb(188, 116, 116)) 41%
+    ),
+    linear-gradient(
+      45deg,
+      var(--color, #f7e6e6) 25%,
+      rgba(255, 255, 255, 0.1) 0,
+      rgba(255, 255, 255, 0.1) 50%,
+      var(--color, #f7e6e6) 0,
+      var(--color, #f7e6e6) 75%,
+      #fff 0,
+      #fff 100%,
+      var(--color, #f7e6e6) 0
+    );
+  background-size: var(--size, 150px) var(--size, 150px);
+}
+
+.slide > img {
+  display: block;
+  width: 100%; /* Asegura que las imágenes no excedan el contenedor */
+  height: 100%;
+  object-fit: contain; /* Mantén la proporción de las imágenes */
+  object-position: center;
+  border: 5px solid rgba(255, 235, 240, 0.8);
+  border-radius: 15px;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+  color: #ffffff;
+  background-color: rgba(255, 182, 193, 0.8); /* Rosa pastel */
+}
+
+.carousel-button.prev {
+  left: 1rem;
+}
+
+.carousel-button.next {
+  right: 1rem;
+}
+
+/* Content Section */
+.content-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+
+  /* Apply the pattern */
+  background: radial-gradient(
+      circle at 15% 30%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    radial-gradient(
+      circle at 50% 70%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    radial-gradient(
+      circle at 15% 70%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      transparent 40%,
+      var(--color, #d1bdbd) 41%
+    ),
+    linear-gradient(
+      45deg,
+      var(--color, #d1bdbd) 25%,
+      rgba(0, 0, 0, 0.067) 0,
+      rgba(0, 0, 0, 0.067) 50%,
+      var(--color, #d1bdbd) 0,
+      var(--color, #d1bdbd) 75%,
+      #1111 0,
+      #1111 100%,
+      var(--color, #d1bdbd) 0
+    );
+  background-size: var(--size, 150px) var(--size, 150px);
+}
+
+.poem-container {
+  flex: 1;
+  display: flex; /* Activa Flexbox */
+  flex-direction: column; /* Asegura que los elementos internos (título y texto) estén en columna */
+  justify-content: center; /* Centra verticalmente el contenido */
+  align-items: center; /* Centra horizontalmente el contenido */
+  border: 2px solid #ff99aa;
+  border-radius: 15px;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.poem-title {
+  font-size: 2.5rem;
+  color: #d1005c;
+  margin-bottom: 1rem;
+  font-family: "Cursive", sans-serif;
+  text-align: center; /* Centra el texto dentro del título */
+}
+
+.poem-text {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #6a1a39;
+  font-style: italic;
+  text-align: center; /* Centra el texto dentro del párrafo */
+}
+
+.heart-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Heart Styling */
+.heart {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  background: #f20044; /* Color rojo */
+  transform: rotate(-45deg);
+  box-shadow: 15px 5px 100px 20px #f20044;
+  animation: heart 0.6s linear infinite;
+}
+
+/* Left Curve */
+.heart::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #f20044; /* Mismo rojo */
+  top: -50%; /* Alinea en la parte superior */
+  border-radius: 50%; /* Redondeado */
+}
+
+/* Right Curve */
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #f20044; /* Mismo rojo */
+  right: -50%; /* Alinea en la derecha */
+  border-radius: 50%; /* Redondeado */
+}
+
+/* Heart Animation */
+@keyframes heart {
+  0% {
+    transform: scale(1.07) rotate(-45deg); /* Agranda ligeramente */
+  }
+  80% {
+    transform: scale(1) rotate(-45deg); /* Tamaño normal */
+  }
+  100% {
+    transform: scale(0.8) rotate(-45deg); /* Se reduce */
+  }
+}
+
+@media (max-width: 768px) {
+  .heart {
+    height: 100px; /* Reduce tamaño */
+    width: 100px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 100px; /* Ajustar bordes superiores e inferiores */
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heart {
+    height: 75px; /* Más pequeño para pantallas pequeñas */
+    width: 75px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 75px;
+    height: 75px;
+  }
+}
