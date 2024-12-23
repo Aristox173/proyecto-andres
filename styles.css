@@ -367,3 +367,43 @@ header {
     height: 75px;
   }
 }
+
+@media (max-width: 768px) {
+  .content-section {
+    flex-direction: column; /* Cambia la dirección a columna */
+    align-items: center; /* Centra ambos elementos */
+    gap: 1rem; /* Reduce el espacio entre elementos */
+  }
+
+  .poem-container,
+  .heart-container {
+    flex: none; /* Permite que ambos elementos ocupen su propio espacio */
+    width: 100%; /* Asegura que ocupen el ancho completo */
+    max-width: 600px; /* Limita el ancho máximo */
+  }
+}
+
+@media (max-width: 768px) {
+  .content-section {
+    flex-direction: column; /* Cambia la dirección a columna */
+    align-items: center; /* Centra ambos elementos */
+    gap: 1rem; /* Reduce el espacio entre elementos */
+  }
+
+  .poem-container,
+  .heart-container {
+    flex: none; /* Permite que ambos elementos ocupen su propio espacio */
+    width: 100%; /* Asegura que ocupen el ancho completo */
+    max-width: 600px; /* Limita el ancho máximo */
+  }
+
+  .heart-container {
+    margin-top: 2rem; /* Añade un margen superior para separar el corazón del poema */
+  }
+}
+
+@media (max-width: 480px) {
+  .heart-container {
+    margin-top: 3rem; /* Aumenta el margen superior para pantallas más pequeñas */
+  }
+}
