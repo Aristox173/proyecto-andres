@@ -71,7 +71,7 @@ header {
 /* Carousel */
 .carousel {
   width: 100%; /* Asegúrate de que ocupe el 100% del ancho de la pantalla */
-  height: 50vh;
+  height: 75vh;
   position: relative;
   border-top: 2px solid #ff9aa2;
   border-bottom: 2px solid #ff9aa2;
